@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default:
           "bg-slate-900 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-700",
         danger:
-          "bg-red-900 dark:bg-red-600 dark:text-white dark:hover:bg-red-700",
+          "bg-red-900 dark:bg-[#c2344d] dark:text-white dark:hover:bg-red-700",
         cancel:
           "bg-gray-300 text-gray-700 dark:bg-[#f5f5fa] dark:text-dark hover:bg-gray-400 dark:hover:bg-gray-200",
 
@@ -39,6 +39,7 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {
   children: ReactNode;
   isLoading?: boolean;
+  type?: "submit" | "button" | "reset";
 }
 
 const Button = ({
@@ -48,10 +49,12 @@ const Button = ({
   isLoading,
   className,
   children,
+  type,
   ...props
 }: ButtonProps) => {
   return (
     <button
+      type={type}
       className={cn(buttonVariants({ variant, size, fullWidth, className }))}
       {...props}
       disabled={isLoading}

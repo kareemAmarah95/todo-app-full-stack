@@ -18,7 +18,10 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         {userData ? (
-          <div className="flex items-center text-indigo-600 space-x-2">
+          <div className="flex items-center text-indigo-600 space-x-4">
+            <li className="duration-200 text-lg">
+              <NavLink to="/todos">todos</NavLink>
+            </li>
             <li className="duration-200 text-lg">
               <NavLink to="/profile">Profile</NavLink>
             </li>
